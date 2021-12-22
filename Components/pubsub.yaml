@@ -3,18 +3,8 @@ kind: Component
 metadata:
   name: order_pub_sub
 spec:
-  type: pubsub.rabbitmq
+  type: pubsub.azure.servicebus
   version: v1
   metadata:
-  - name: host
-    value: "amqp://admin:password@localhost:5672"
-  - name: durable
-    value: "false"
-  - name: deletedWhenUnused
-    value: "false"
-  - name: autoAck
-    value: "false"
-  - name: reconnectWait
-    value: "0"
-  - name: concurrency
-    value: parallel
+  - name: connectionString
+    value: Endpoint=sb://[resource].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[AccessKey]
