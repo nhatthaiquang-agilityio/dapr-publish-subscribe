@@ -5,7 +5,6 @@ Example: Distributed Application Runtime(DAPR) Publish and Subscriber messages v
 
 ### Requirements
 ----------------
-+ Install [Minikube](https://minikube.sigs.k8s.io/docs/start/)
 + Install [Dapr](https://docs.dapr.io/getting-started/)
 + Install .NET5
 
