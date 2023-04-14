@@ -10,12 +10,13 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 
-COPY ["DemoMicroservices/Messages/Messages.csproj", "Messages/Messages.csproj"]
-COPY ["DemoMicroservices/Producer/Producer.csproj", "Producer/"]
+COPY ["DemoMicroservices/Messages/Messages.csproj", "DemoMicroservices/Messages/Messages.csproj"]
+COPY ["DemoMicroservices/Producer/Producer.csproj", "DemoMicroservices/Producer/"]
 
-RUN dotnet restore "Producer/Producer.csproj"
+RUN dotnet restore "DemoMicroservices/Producer/Producer.csproj"
+
 COPY . .
-WORKDIR "/src/Producer"
+WORKDIR "/src/DemoMicroservices/Producer"
 RUN dotnet build "Producer.csproj" -c Release -o /app/build
 
 FROM build AS publish
