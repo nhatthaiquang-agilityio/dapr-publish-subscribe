@@ -57,6 +57,9 @@ Example: Distributed Application Runtime(DAPR) Publish and Subscriber messages
 + Consumer message
     ![Consumer](./Images/Dapr-Consumer.png)
 
++ Add Dapr Component in Azure
+    ![Dapr Component](./Images/Azure-Dapr-Component.png)
+
 ### References
 --------------
 + [Dapr Pub Sub ASP Net Core integration](https://yourazurecoach.com/2019/12/27/exploring-dapr-pub-sub-part-2-asp-net-core-integration/)
