@@ -1,7 +1,8 @@
 # DAPR: publish and subscribe messages example
-Example: Distributed Application Runtime(DAPR) Publish and Subscriber messages via RabbitMQ
+Example: Distributed Application Runtime(DAPR) Publish and Subscriber messages
     - Using .NET7
-    - Using AzureServiceBus(branch:AzureServiceBus)
+    - Using RabbitMQ on local
+    - Using AzureServiceBus
 
 ### Requirements
 ----------------
@@ -22,11 +23,13 @@ Example: Distributed Application Runtime(DAPR) Publish and Subscriber messages v
     cd DemoMicroservices
     docker-compose up
     ```
++ Using RabbitMQ:
+    Set PubSubName="order_pub_sub_rabbitmq"
 
 + Start Consumer(app-id: checkout)
     ```
     cd DemoMicroservices\Consumer
-    dapr run --app-id checkout --components-path ../../Components --app-port 5000 --dapr-http-port 3500 --dapr-grpc-port 60002 dotnet run
+    dapr run --app-id checkout --components-path ../../ComponentsLocal --app-port 5000 --dapr-http-port 3500 --dapr-grpc-port 60002 dotnet run
     ```
     The /checkout endpoint matches the route defined in the subscriptions and this is where Dapr will send all topic messages to.
     It will be created a queue with name: checkout-orders
@@ -34,7 +37,7 @@ Example: Distributed Application Runtime(DAPR) Publish and Subscriber messages v
 + Start Producer(app-id: orderprocessing)
     ```
     cd DemoMicroservices\Producer
-    dapr run --app-id orderprocessing --app-port 5011 --dapr-http-port 3501 --dapr-grpc-port 60001 --components-path ../../Components dotnet run
+    dapr run --app-id orderprocessing --app-port 5011 --dapr-http-port 3501 --dapr-grpc-port 60001 --components-path ../../ComponentsLocal dotnet run
     ```
 
 + Send a message from Producer to Consumer
