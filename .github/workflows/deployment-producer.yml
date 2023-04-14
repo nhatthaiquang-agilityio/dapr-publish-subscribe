@@ -43,18 +43,18 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: docker_build_push_acr
-    environment:
-      name: 'Development'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-      - name: Lowercase the repo name
-        run: echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.CONTAINER_AZURE_CREDENTIALS }}
 
-      # - name: Deploy to Azure Web App Container
-      #   id: deploy-to-webapp
-      #   uses: azure/webapps-deploy@v2
-      #   with:
-      #     app-name: ${{ env.AZURE_WEBAPP_NAME_CONTAINER }}
-      #     publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_CONTAINER }}
-      #     images: '${{ env.REGISTRY_LOGIN_SERVER }}/net7container:${{ github.sha }}'
+
+      - name: Deploy to containerapp
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az config set extension.use_dynamic_install=yes_without_prompt
+            az containerapp registry set -n producer-container -g NextjsApp --server net7daprcontainer.azurecr.io --username  ${{ secrets.REGISTRY_USERNAME }} --password ${{ secrets.REGISTRY_PASSWORD }}
+            az containerapp update -n producer-container -g NextjsApp --image net7daprcontainer.azurecr.io/producer-container:${{ github.sha }}
