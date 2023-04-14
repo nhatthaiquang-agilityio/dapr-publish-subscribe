@@ -12,7 +12,7 @@ namespace Producer.Controllers
     [Route("[controller]")]
     public class OrderController : ControllerBase
     {
-        private string PUBSUB_NAME = "order_pub_sub";
+        private string PUBSUB_NAME = "order-pub-sub";
         private string TOPIC_NAME = "orders";
 
         private readonly ILogger<OrderController> _logger;

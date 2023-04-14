@@ -9,7 +9,7 @@ namespace CheckoutService.controller
     public class CheckoutServiceController : ControllerBase
     {
         private readonly ILogger<CheckoutServiceController> _logger;
-        private const string DAPR_PUBSUB_NAME = "order_pub_sub";
+        private const string DAPR_PUBSUB_NAME = "order-pub-sub";
         private const string TOPIC_NAME = "orders";
 
         public CheckoutServiceController(ILogger<CheckoutServiceController> logger)

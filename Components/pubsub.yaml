@@ -1,7 +1,7 @@
 apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
-  name: order_pub_sub
+  name: order-pub-sub
 spec:
   type: pubsub.azure.servicebus
   version: v1
