@@ -1,12 +1,12 @@
 # DAPR: publish and subscribe messages example
 Example: Distributed Application Runtime(DAPR) Publish and Subscriber messages via RabbitMQ
-    - Using .NET5
+    - Using .NET7
+    - Using AzureServiceBus(branch:AzureServiceBus)
 
 ### Requirements
 ----------------
-+ Install [Minikube](https://minikube.sigs.k8s.io/docs/start/)
 + Install [Dapr](https://docs.dapr.io/getting-started/)
-+ Install .NET5
++ Install .NET7
 
 ### Structures
 ----------------

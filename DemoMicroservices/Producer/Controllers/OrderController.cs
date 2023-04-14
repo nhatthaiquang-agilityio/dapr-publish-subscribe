@@ -18,10 +18,10 @@ namespace Producer.Controllers
         private readonly ILogger<OrderController> _logger;
         private readonly DaprClient _daprClient;
 
-        public OrderController(ILogger<OrderController> logger)
+        public OrderController(ILogger<OrderController> logger, DaprClient daprClient)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            _daprClient = new DaprClientBuilder().Build();
+            _daprClient = daprClient ?? throw new ArgumentNullException(nameof(daprClient));
         }
 
         [HttpGet]
