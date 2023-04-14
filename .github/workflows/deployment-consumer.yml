@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
 
 env:
-  REGISTRY_LOGIN_SERVER: net7container.azurecr.io
-  AZURE_WEBAPP_NAME_CONTAINER: net7container
+  REGISTRY_LOGIN_SERVER: net7daprcontainer.azurecr.io
+  AZURE_WEBAPP_NAME_CONTAINER: net7daprcontainer
 
 jobs:
   docker_build_push_acr:
@@ -37,7 +37,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: ${{ env.REGISTRY_LOGIN_SERVER }}/net7container:${{ github.sha }}
+        tags: ${{ env.REGISTRY_LOGIN_SERVER }}/net7dapr-consumer:${{ github.sha }}
         file: ./DemoMicroservices/Consumer/Dockerfile
 
   deploy:
