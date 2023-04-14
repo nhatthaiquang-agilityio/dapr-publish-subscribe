@@ -10,8 +10,8 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 
-COPY ["Messages/Messages.csproj", "Messages/Messages.csproj"]
-COPY ["Producer/Producer.csproj", "Producer/"]
+COPY ["DemoMicroservices/Messages/Messages.csproj", "Messages/Messages.csproj"]
+COPY ["DemoMicroservices/Producer/Producer.csproj", "Producer/"]
 
 RUN dotnet restore "Producer/Producer.csproj"
 COPY . .
