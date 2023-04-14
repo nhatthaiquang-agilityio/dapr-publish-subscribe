@@ -8,7 +8,6 @@ on:
 
 env:
   REGISTRY_LOGIN_SERVER: net7daprcontainer.azurecr.io
-  AZURE_WEBAPP_NAME_CONTAINER: net7daprcontainer
 
 jobs:
   docker_build_push_acr:
