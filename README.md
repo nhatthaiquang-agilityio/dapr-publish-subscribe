@@ -24,7 +24,7 @@ Example: Distributed Application Runtime(DAPR) Publish and Subscriber messages
     docker-compose up
     ```
 + Using RabbitMQ:
-    Set PubSubName="order_pub_sub_rabbitmq"
+    Set PubSubName="order-pub-sub"
 
 + Start Consumer(app-id: checkout)
     ```
