@@ -83,9 +83,8 @@ Example: Distributed Application Runtime(DAPR) Publish and Subscriber messages
 + Consumer message
     ![Consumer](./Images/Dapr-Consumer.png)
 
-
 + Consumer Container Config in Azure
-    ![Consumer Container](./Images/consumer-container.png)
+    ![Consumer Container Config](./Images/consumer-dapr-config.png)
 
 + Producer Container Config in Azure
     ![Producer Container Config](./Images/producer-dapr-config.png)
@@ -95,6 +94,9 @@ Example: Distributed Application Runtime(DAPR) Publish and Subscriber messages
 
 + Producer Logging in Azure
     ![Producer Logging](./Images/producer-log.png)
+
++ Consumer Container Logging in Azure
+    ![Consumer Container](./Images/consumer-logging.png)
 
 ### References
 --------------
