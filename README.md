@@ -51,14 +51,29 @@ Example: Distributed Application Runtime(DAPR) Publish and Subscriber messages
     ```
 
 ### Using Azure Container App and Azure Service Bus
++ Create Azure Credential
+    ```
+    az ad sp create-for-rbac --name "myApp" --role contributor \
+        --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
+        --sdk-auth
+    ```
+
 + Create Dapr Component
+    $ENVIRONMENT: Container App Environment
+
     ```
     az containerapp env dapr-component set `
         --name $ENVIRONMENT --resource-group $RESOURCE_GROUP `
         --dapr-component-name order-pub-sub `
         --yaml '.\Components\pubsub.yaml'
     ```
-    
+
++ Enable Ingress in Producer Container
+    ```
+    az containerapp ingress enable --name producer-container --resource-group containers --target-port 80 --exposed-port 80 --transport http --type external --allow-insecure
+    ```
+
+### Result
 + Publish message
     ![Publisher](./Images/Dapr-Publish.png)
 
