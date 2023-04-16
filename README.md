@@ -50,6 +50,15 @@ Example: Distributed Application Runtime(DAPR) Publish and Subscriber messages
     }
     ```
 
+### Using Azure Container App and Azure Service Bus
++ Create Dapr Component
+    ```
+    az containerapp env dapr-component set `
+        --name $ENVIRONMENT --resource-group $RESOURCE_GROUP `
+        --dapr-component-name order-pub-sub `
+        --yaml '.\Components\pubsub.yaml'
+    ```
+    
 + Publish message
     ![Publisher](./Images/Dapr-Publish.png)
 
