@@ -1,8 +1,8 @@
 # DAPR: publish and subscribe messages example
 Example: Distributed Application Runtime(DAPR) Publish and Subscriber messages
-    - Using .NET7
-    - Using RabbitMQ on local
-    - Using AzureServiceBus
+    + Using .NET7
+    + Using RabbitMQ on local
+    + Using Container App, Dapr Component and AzureServiceBus in Azure
 
 ### Requirements
 ----------------
@@ -14,8 +14,8 @@ Example: Distributed Application Runtime(DAPR) Publish and Subscriber messages
 + Producer: using the API sends messages
 + Consumer: receive messages from pubSubName and Topic
 + Messages: create message model
-+ Components: `pubsub.yaml` is config your message bus (RabbitMQ)
-
++ ComponentsLocal: `pubsub.yaml` is config your message bus (RabbitMQ)
++ Components: `pubsub.yaml` is config your message bus (Azure Service Bus)
 
 ### Usages
 + Start RabbitMQ:
