@@ -3,6 +3,7 @@ Example: Distributed Application Runtime(DAPR) Publish and Subscriber messages
 + Using .NET7
 + Using RabbitMQ on local
 + Using Container App, Dapr Component and AzureServiceBus in Azure
++ CI/CD: GitHub Action 
 
 ### Requirements
 ----------------
@@ -59,7 +60,7 @@ Example: Distributed Application Runtime(DAPR) Publish and Subscriber messages
     ```
 
 + Create Dapr Component
-    $ENVIRONMENT: Container App Environment
+    + $ENVIRONMENT: Container App Environment
 
     ```
     az containerapp env dapr-component set \
